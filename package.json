@@ -1,0 +1,37 @@
+{
+  "name": "@afaneh262/cool-linters",
+  "version": "1.0.0",
+  "description": "npm package designed to enforce best practices for commit messages and branch naming conventions",
+  "main": "index.js",
+  "scripts": {
+    "branch-linter": "node src/branch-linter.js",
+    "commit-linter": "node src/commit-linter.js",
+    "postinstall": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run branch-linter",
+      "commit-msg": "npm run commit-linter"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afaneh262/cool-linters.git"
+  },
+  "keywords": [
+    "linting",
+    "husky",
+    "commit",
+    "branch",
+    "lint"
+  ],
+  "author": "Wajed Afaneh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/afaneh262/cool-linters/issues"
+  },
+  "homepage": "https://github.com/afaneh262/cool-linters#readme",
+  "dependencies": {
+    "husky": "^6.0.0"
+  }
+}

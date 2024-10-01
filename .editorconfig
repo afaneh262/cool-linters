@@ -1,0 +1,70 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.json]
+indent_size = 2
+
+[*.js]
+indent_size = 2
+
+[*.ts]
+indent_size = 2
+
+[*.tsx]
+indent_size = 2
+
+# ESLint rules
+[**.{js,jsx,ts,tsx}]
+indent_style = space
+indent_size = 2
+
+# ESLint-disable
+# All the rules disabled here are from ESLint configuration
+
+# Quotemark
+quote_type = double
+jsx_quote_type = double
+
+# Semicolon
+insert_final_newline = true
+
+# Trailing comma
+multiline_object_trailing_comma = never
+multiline_array_trailing_comma = never
+multiline_function_trailing_comma = never
+multiline_type_literal_trailing_comma = ignore
+
+# Disable specific ESLint rules
+no-unused-expression = false
+jsx-alignment = false
+one-variable-per-declaration = false
+no-submodule-imports = false
+no-empty = false
+prefer-const = false
+jsx-no-multiline-js = false
+no-implicit-dependencies = false
+no-shadowed-variable = false
+jsx-boolean-value = false
+jsx-no-lambda = false
+jsx-wrap-multiline = false
+jsx-self-close = false
+max-line-length = false
+prefer-conditional-expression = false
+forin = false
+variable-name = false
+no-string-literal = false
+comment-format = false
+one-line = false
+prefer-for-of = false
+curly = false
+prefer-object-spread = false
