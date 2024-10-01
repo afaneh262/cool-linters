@@ -14,7 +14,6 @@ function getCurrentBranch() {
 
 function validateBranch(branch) {
   if (branchNameLinter.skip.includes(branch)) {
-    console.log(`Branch '${branch}' is valid.`);
     return;
   }
 
@@ -27,8 +26,6 @@ function validateBranch(branch) {
     console.error(`Branch '${branch}' does not match the allowed pattern.`);
     process.exit(1);
   }
-
-  console.log(`Branch '${branch}' is valid.`);
 }
 
 const currentBranch = getCurrentBranch();

@@ -1,6 +1,6 @@
 {
   "name": "@afaneh262/cool-linters",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "npm package designed to enforce best practices for commit messages and branch naming conventions",
   "main": "index.js",
   "scripts": {

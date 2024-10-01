@@ -1,21 +1,28 @@
 const fs = require('fs');
+const path = require('path');
 
-// Commit message rules
+// Path to the commit message file
+const commitMessageFilePath = path.join('.git', 'COMMIT_EDITMSG');
+
+// Regex for validating commit message
 const commitMessageRegex = /^\[(fix|chore|feat|hotfix|docs)\]\[([A-Z]+-\d+)\]: (.+)$/;
 
-function getCommitMessage() {
-  const commitMessageFilePath = process.argv[2];
-  return fs.readFileSync(commitMessageFilePath, 'utf8').trim();
-}
-
-function validateCommitMessage(commitMessage) {
-  if (!commitMessageRegex.test(commitMessage)) {
-    console.error('Commit message must be in the format: [<Prefix>][<Ticket ID>]: <Description>');
+// Function to validate the commit message
+function validateCommitMessage() {
+  try {
+    const commitMessage = fs.readFileSync(commitMessageFilePath, 'utf8').trim();
+    // Validate commit message format
+    if (!commitMessage.match(commitMessageRegex)) {
+      console.error(`Invalid commit message format:\n"${commitMessage}"`);
+      console.error('Commit message must be in the format: [<Prefix>][<Ticket ID>]: <Description>');
+      console.error('Allowed Prefix are: fix|chore|feat|hotfix|docs');
+      process.exit(1);
+    }
+  } catch (error) {
+    console.error('Error reading commit message:', error);
     process.exit(1);
   }
-
-  console.log(`Commit message is valid.`);
 }
 
-const commitMessage = getCommitMessage();
-validateCommitMessage(commitMessage);
+// Run the validation
+validateCommitMessage();
