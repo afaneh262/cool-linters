@@ -11,6 +11,13 @@ const commitMessageRegex = /^\[(fix|chore|feat|hotfix|docs)\]\[([A-Z]+-\d+)\]: (
 function validateCommitMessage() {
   try {
     const commitMessage = fs.readFileSync(commitMessageFilePath, 'utf8').trim();
+
+    // Check if the commit message is a merge commit (starts with "Merge")
+    if (commitMessage.startsWith('Merge')) {
+      console.log('Merge commit detected, skipping commit message validation.');
+      return;
+    }
+
     // Validate commit message format
     if (!commitMessage.match(commitMessageRegex)) {
       console.error(`Invalid commit message format:\n"${commitMessage}"`);
